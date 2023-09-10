@@ -3,27 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!---- the three next meta tags are added to improve seo-->
+    <meta name="description" content="Managing financial budget effectively can be tough and this free budget management app helps you track your expenses and stay on budget.">
+    <meta name="keywords" content="expenses, financial planning, money management,personal budget, budget management, ">
+    <meta name="author" content="Vinayakraddi">
+
+
+
     <title>Personal Budget</title>
-    <link rel="stylesheet" href="http://143.198.122.244/personal-budget/reset.css">
-    <link rel="stylesheet" href="http://143.198.122.244/personal-budget/main.css">
+    <link rel="stylesheet" href="/reset.css">
+    <link rel="stylesheet" href="/main.css">
 </head>
 <body>
-
-    <div class="menu">
+    <!---- Used nav instead of div tag for the navigation links-->
+    <!-- Added role to nav tag to enhance accessibility-->
+    <nav class="menu" role="navigation">
         <ul>
-            <li><a href="/">This is Homepage</a></li>
-            <li><a href="/about.html">About</a></li>
-            <li><a href="/login.html">Login</a></li>
-            <li><a href="https://google.com">Google</a></li>
+            <!---- Added aria-lable for all the below 4 navigation links to enhance accessibility-->
+            <li><a href="/" aria-label="Homepage">Homepage</a></li>
+            <li><a href="/about.html" aria-label="About this page">About</a></li>
+            <li><a href="/login.html" aria-label="Login page">Login</a></li>
+            <li><a href="https://google.com" aria-label="Google search engine">Google</a></li>
         </ul>
-    </div>
-
-    <div class="hero">
+    </nav>
+     <!---- Used header instead of div tag for the page heading-->
+    <header>
         <h1>Personal Budget</h1>
         <h2>A personal-budget management app</h2>
-    </div>
+    </header>
 
-    <div class="container center">
+    <!-- Added role to div tag to enhance accessibility-->
+    <div class="container center"  >
 
         <div class="page-area">
 
@@ -94,12 +104,12 @@
         </div>
 
     </div>
-
-    <div class="bottom">
-        <div class="center">
-            All rights reserved &copy; Fabio Nolasco
-        </div>
-    </div>
+    <!---- Used footer instead of div tag -->
+    <footer class="bottom">
+        
+           <p class="center" >All rights reserved &copy; Vinayakraddi</p>
+        
+    </footer>
 
 </body>
 </html>
