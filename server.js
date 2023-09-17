@@ -3,6 +3,7 @@ const app = express();
 const port = 3000;
 
 app.use('/', express.static('public'));
+app.use('/jn',express.static('data.json'));
 
 const budget ={ 
     myBudget: [
@@ -27,7 +28,14 @@ app.get('/hello', (req,res) =>{
 })
 
 app.get('/budget', (req, res) => {
-    res.json(budget);
+    const url = 'http://localhost:3000/jn';
+
+    fetch(url)
+    .then(response => response.json())
+    .then(data => {
+        res.json(data);
+  });
+    //res.json(budget);
 });
 
 app.listen(port, () => {
