@@ -183,16 +183,20 @@
         });
         }
         function getBudget() {
-        axios.get('/budget')
-        .then(function (res) {
-        console.log(res); 
-        for (var i = 0; i < res.data.myBudget.length; i++) {
-            dataSource.datasets[0].data[i] = res.data.myBudget[i].budget;
-            dataSource.labels[i] = res.data.myBudget[i].title;
-        }
-        createChart();
-    });
-    }
+            axios.get('/budget')
+            .then(function (res) {
+                console.log(res); 
+                for (var i = 0; i < res.data.myBudget.length; i++) {
+                    dataSource.datasets[0].data[i] = res.data.myBudget[i].budget;
+                    dataSource.labels[i] = res.data.myBudget[i].title;
+                }
+                createChart();
+                // Add this line to update the D3.js chart
+                change(dataSource.labels.map(function(label, index) {
+                    return { label: label, value: dataSource.datasets[0].data[index] };
+                }));
+            });
+        }
         getBudget();       
       
         var svg = d3.select("#this")
@@ -229,8 +233,8 @@ svg.attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
 var key = function(d){ return d.data.label; };
 
 var color = d3.scale.ordinal()
-	.domain(["Eat out", "Rent", "Grocery", "Insurance", "Personal Care", "Investments", "Miscellaneous"])
-	.range(["#98abc5", "#8a89a6", "#7b6888", "#6b486b", "#a05d56", "#d0743c", "#ff8c00"]);
+    .domain(dataSource.labels)
+    .range(["#98abc5", "#8a89a6", "#7b6888", "#6b486b", "#a05d56", "#d0743c", "#ff8c00"]);
 
 function randomData (){
 	var labels = color.domain();
